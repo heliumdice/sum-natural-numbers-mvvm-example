@@ -8,12 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		4D48897D2028C11F0092FC91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D48897C2028C11F0092FC91 /* AppDelegate.swift */; };
-		4D48897F2028C11F0092FC91 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D48897E2028C11F0092FC91 /* ViewController.swift */; };
+		4D48897F2028C11F0092FC91 /* SumNumbersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D48897E2028C11F0092FC91 /* SumNumbersViewController.swift */; };
 		4D4889822028C11F0092FC91 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D4889802028C11F0092FC91 /* Main.storyboard */; };
 		4D4889842028C11F0092FC91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D4889832028C11F0092FC91 /* Assets.xcassets */; };
 		4D4889872028C11F0092FC91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D4889852028C11F0092FC91 /* LaunchScreen.storyboard */; };
 		4D4889922028C11F0092FC91 /* SumNaturalNumbersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4889912028C11F0092FC91 /* SumNaturalNumbersTests.swift */; };
 		4D48899D2028C11F0092FC91 /* SumNaturalNumbersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D48899C2028C11F0092FC91 /* SumNaturalNumbersUITests.swift */; };
+		4D4889AB2028C3140092FC91 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4889AA2028C3140092FC91 /* ViewModel.swift */; };
+		4D4889AD2028C3D20092FC91 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4889AC2028C3D20092FC91 /* DataModel.swift */; };
+		4D4889B12028CA1A0092FC91 /* BindingBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4889B02028CA1A0092FC91 /* BindingBox.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +39,7 @@
 /* Begin PBXFileReference section */
 		4D4889792028C11F0092FC91 /* SumNaturalNumbers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SumNaturalNumbers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D48897C2028C11F0092FC91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4D48897E2028C11F0092FC91 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4D48897E2028C11F0092FC91 /* SumNumbersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SumNumbersViewController.swift; sourceTree = "<group>"; };
 		4D4889812028C11F0092FC91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4D4889832028C11F0092FC91 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D4889862028C11F0092FC91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +50,9 @@
 		4D4889982028C11F0092FC91 /* SumNaturalNumbersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SumNaturalNumbersUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D48899C2028C11F0092FC91 /* SumNaturalNumbersUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SumNaturalNumbersUITests.swift; sourceTree = "<group>"; };
 		4D48899E2028C11F0092FC91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4D4889AA2028C3140092FC91 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		4D4889AC2028C3D20092FC91 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		4D4889B02028CA1A0092FC91 /* BindingBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingBox.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,8 +104,11 @@
 			isa = PBXGroup;
 			children = (
 				4D48897C2028C11F0092FC91 /* AppDelegate.swift */,
-				4D48897E2028C11F0092FC91 /* ViewController.swift */,
 				4D4889802028C11F0092FC91 /* Main.storyboard */,
+				4D48897E2028C11F0092FC91 /* SumNumbersViewController.swift */,
+				4D4889AA2028C3140092FC91 /* ViewModel.swift */,
+				4D4889AC2028C3D20092FC91 /* DataModel.swift */,
+				4D4889B02028CA1A0092FC91 /* BindingBox.swift */,
 				4D4889832028C11F0092FC91 /* Assets.xcassets */,
 				4D4889852028C11F0092FC91 /* LaunchScreen.storyboard */,
 				4D4889882028C11F0092FC91 /* Info.plist */,
@@ -259,8 +268,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D48897F2028C11F0092FC91 /* ViewController.swift in Sources */,
+				4D48897F2028C11F0092FC91 /* SumNumbersViewController.swift in Sources */,
+				4D4889AD2028C3D20092FC91 /* DataModel.swift in Sources */,
+				4D4889AB2028C3140092FC91 /* ViewModel.swift in Sources */,
 				4D48897D2028C11F0092FC91 /* AppDelegate.swift in Sources */,
+				4D4889B12028CA1A0092FC91 /* BindingBox.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,7 +439,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Q6F8YH88UZ;
+				DEVELOPMENT_TEAM = 244DXE6AQQ;
 				INFOPLIST_FILE = SumNaturalNumbers/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.richardflanagan.SumNaturalNumbers;
@@ -442,7 +454,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Q6F8YH88UZ;
+				DEVELOPMENT_TEAM = 244DXE6AQQ;
 				INFOPLIST_FILE = SumNaturalNumbers/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.richardflanagan.SumNaturalNumbers;
