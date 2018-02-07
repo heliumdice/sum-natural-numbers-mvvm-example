@@ -15,16 +15,19 @@ enum NumberValidationState {
 
 class ViewModel {
     
-    private var dataModel = DataModel() {
-        didSet {
-            firstNumber.value = dataModel.firstNumber
-            secondNumber.value = dataModel.secondNumber
-        }
-    }
+    private var dataModel = DataModel()
     
     // Getters
-    var firstNumber : Box<String> = Box("")
-    var secondNumber : Box<String> = Box("")
+    var firstNumber : String {
+        return dataModel.firstNumber
+    }
+    var secondNumber : String {
+        return dataModel.secondNumber
+    }
+    
+    init(dataModel : DataModel = DataModel()) {
+        self.dataModel = dataModel
+    }
 }
 
 
@@ -57,18 +60,11 @@ extension ViewModel {
         }
         
         if !dataModel.firstNumber.isNumber {
-            return .Invalid("The first number entered contains non-numeric characters. A natural numbers is any positive whole number.")
+            return .Invalid("The first number entered is not a natural number. A natural numbers is any positive integer.")
         }
         
         if !dataModel.secondNumber.isNumber  {
-            return .Invalid("The second number entered contains non-numeric characters. A natural numbers is any positive integer.")
-        }
-        
-        if let firstNum = UInt64(dataModel.firstNumber),
-            let secondNum = UInt64(dataModel.secondNumber) {
-            if firstNum < 0 || secondNum < 0 {
-                return .Invalid("Numbers must be positive integers.")
-            }
+            return .Invalid("The second number entered is not a natural number. A natural numbers is any positive integer.")
         }
         
         return .Valid
@@ -76,6 +72,18 @@ extension ViewModel {
 }
 
 extension String  {
+    struct NumFormatter {
+        static let instance = NumberFormatter()
+    }
+    
+    var doubleValue: Double? {
+        return NumFormatter.instance.number(from: self)?.doubleValue
+    }
+    
+    var integerValue: Int? {
+        return NumFormatter.instance.number(from: self)?.intValue
+    }
+
     public var isNumber: Bool {
         return !isEmpty && rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) == nil
     }

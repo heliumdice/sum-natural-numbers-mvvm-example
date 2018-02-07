@@ -11,26 +11,107 @@ import XCTest
 
 class SumNaturalNumbersTests: XCTestCase {
     
+    var validViewModel : ViewModel!
+    
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        
+        let dataModel = DataModel(firstNumber: "123", secondNumber: "123")
+        validViewModel = ViewModel(dataModel: dataModel)
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testFirstNumber() {
+        XCTAssertEqual(validViewModel.firstNumber, "123")
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testSecondNumber() {
+        XCTAssertEqual(validViewModel.secondNumber, "123")
+    }
+    
+    func testUpdateFirstNumber() {
+        validViewModel.updateFirstNumber(number: "456")
+        XCTAssertEqual(validViewModel.firstNumber, "456")
+    }
+    
+    func testUpdateSecondNumber() {
+        validViewModel.updateSecondNumber(number: "789")
+        XCTAssertEqual(validViewModel.secondNumber, "789")
+    }
+    
+    func testValidateMissingNumbers() {
+        let invalidViewModel = ViewModel()
+        let validation = invalidViewModel.validate()
+        
+        if case .Invalid(let message) = validation {
+            XCTAssertEqual(message, "Please make sure you have entered two numbers.")
+        } else {
+            XCTAssert(false)
         }
     }
     
+    func testFirstNumberNonNumber() {
+        var invalidViewModel = ViewModel(dataModel: DataModel(firstNumber: "1w3", secondNumber: "123"))
+        var validation = invalidViewModel.validate()
+        
+        if case .Invalid(let message) = validation {
+            XCTAssertEqual(message, "The first number entered is not a natural number. A natural numbers is any positive integer.")
+        } else {
+            XCTAssert(false)
+        }
+        
+        invalidViewModel = ViewModel(dataModel: DataModel(firstNumber: "123", secondNumber: "abc"))
+        validation = invalidViewModel.validate()
+        
+        if case .Invalid(let message) = validation {
+            XCTAssertEqual(message, "The second number entered is not a natural number. A natural numbers is any positive integer.")
+        } else {
+            XCTAssert(false)
+        }
+    }
+    
+    func testNegativeNumbers() {
+        var invalidViewModel = ViewModel(dataModel: DataModel(firstNumber: "-123", secondNumber: "123"))
+        var validation = invalidViewModel.validate()
+        
+        // Negative first number
+        if case .Invalid(let message) = validation {
+            XCTAssertEqual(message, "The first number entered is not a natural number. A natural numbers is any positive integer.")
+        } else {
+            XCTAssert(false)
+        }
+        
+        invalidViewModel = ViewModel(dataModel: DataModel(firstNumber: "123", secondNumber: "-123"))
+        validation = invalidViewModel.validate()
+        
+        // Negative second number
+        if case .Invalid(let message) = validation {
+            XCTAssertEqual(message, "The second number entered is not a natural number. A natural numbers is any positive integer.")
+        } else {
+            XCTAssert(false)
+        }
+    }
+    
+    func testNonIntegerNumbers() {
+        var invalidViewModel = ViewModel(dataModel: DataModel(firstNumber: "123.456", secondNumber: "123"))
+        var validation = invalidViewModel.validate()
+
+        if case .Invalid(let message) = validation {
+            XCTAssertEqual(message, "The first number entered contains non-numeric characters. A natural numbers is any positive integer.")
+        } else {
+            XCTAssert(false)
+        }
+        
+        invalidViewModel = ViewModel(dataModel: DataModel(firstNumber: "123", secondNumber: "123.456"))
+        validation = invalidViewModel.validate()
+
+        if case .Invalid(let message) = validation {
+            XCTAssertEqual(message, "The second number entered contains non-numeric characters. A natural numbers is any positive integer.")
+        } else {
+            XCTAssert(false)
+        }
+    }
 }

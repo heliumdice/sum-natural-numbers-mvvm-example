@@ -20,14 +20,6 @@ class SumNumbersViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        viewModel.firstNumber.bind {
-            print("First number changed: \($0)")
-        }
-        
-        viewModel.secondNumber.bind {
-            print("Second number changed: \($0)")
-        }
     }
     
     override func didReceiveMemoryWarning() {
